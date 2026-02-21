@@ -133,7 +133,7 @@ These topics are set on the repo for search discovery:
 
 ## Skills Inventory & Audit
 
-### What's in the repo (12 skills)
+### What's in the repo (13 skills)
 
 | Skill | Lines | Shareability | Quality | Usefulness | Unique? |
 |-------|-------|-------------|---------|------------|---------|
@@ -141,7 +141,8 @@ These topics are set on the repo for search discovery:
 | ios-development | 787 | 5/5 (scrubbed) | 5/5 | 5/5 | Self-updating iOS 26 toolkit |
 | fiken-accounting | 337 | 5/5 | 5/5 | 4/5 | Only Fiken skill in existence |
 | bunny-net | 510 | 5/5 (scrubbed) | 5/5 | 5/5 | Full platform in one skill |
-| instagram-pipeline | 184 | 4/5 | 5/5 | 3/5 | Requires `socmed` package |
+| instagram-pipeline | 184 + 2,636 (scripts) | 5/5 | 5/5 | 5/5 | Self-contained with bundled scripts/ |
+| transcribe | — | 5/5 | 5/5 | 5/5 | VAD-first pipeline, zero hallucinations |
 | soft-glass-ui | 297 | 5/5 | 5/5 | 4/5 | iOS 26 glass design system |
 | google-deep-research | 250 | 5/5 | 4/5 | 4/5 | Gemini Deep Research API |
 | changelog | 165 | 5/5 (scrubbed) | 5/5 | 5/5 | Strategic memory with bootstrap |

@@ -1,7 +1,7 @@
 {
   "name": "vibelabs-skills",
-  "description": "Production-tested agent skills for iOS development, Norwegian accounting, research orchestration, CDN management, browser automation, and more. Built by Vibelabs from real-world projects.",
-  "version": "1.0.0",
+  "description": "Production-tested agent skills for iOS development, Norwegian accounting, research orchestration, CDN management, audio transcription, browser automation, and more. Built by Vibelabs from real-world projects.",
+  "version": "1.1.0",
   "author": {
     "name": "Vibelabs",
     "email": "hello@vibelabs.no"
@@ -29,6 +29,13 @@
     "norwegian",
     "changelog",
     "deep-research",
-    "gemini"
+    "gemini",
+    "transcription",
+    "whisper",
+    "mlx-whisper",
+    "vad",
+    "speech-to-text",
+    "audio",
+    "nb-whisper"
   ]
 }

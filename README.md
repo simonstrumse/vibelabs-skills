@@ -2,7 +2,7 @@
 
 Production-tested agent skills built from real-world projects. Each skill encodes hard-won knowledge from building iOS apps, sending invoices, orchestrating research, managing CDN infrastructure, and automating browsers.
 
-**12 skills** covering iOS development, Norwegian accounting, research orchestration, CDN/media management, browser automation, content pipelines, and more.
+**13 skills** covering iOS development, Norwegian accounting, research orchestration, CDN/media management, audio transcription, browser automation, content pipelines, and more.
 
 ---
 
@@ -62,6 +62,12 @@ cp -r vibelabs-skills/skills/* ~/.claude/skills/
 | [**klarsprak**](skills/klarsprak/) | Norwegian plain language (klarsprak) guidelines from Sprakradet. The 7 principles, common mistakes, anglicisms to avoid, website copy patterns, quality checklist. |
 | [**transparency-generation**](skills/transparency-generation/) | Generate AI images with true alpha transparency using difference matting. Mathematical foundation, validation pipeline, troubleshooting guide. Works with Vertex AI / Gemini. |
 
+### Audio & Media
+
+| Skill | Description |
+|-------|-------------|
+| [**transcribe**](skills/transcribe/) | VAD-first audio transcription pipeline: Silero-VAD segmentation, MLX Whisper (NB-Whisper for Norwegian, large-v3-turbo for English), dictionary correction, Claude LLM post-processing. Zero hallucinations, 9.6x realtime on M1. 8 critical gotchas documented. |
+
 ### Automation
 
 | Skill | Description |
@@ -79,6 +85,7 @@ These aren't toy examples. Each skill was built to solve real problems in produc
 - **parallel-research** is the methodology behind 100+ research projects spanning competitive analysis, market research, and technical deep-dives
 - **bunny-net** covers the full Bunny.net platform from a single skill (CDN, storage, video, AI, edge compute, security)
 - **instagram-pipeline** processes 12,000+ saved posts with Chrome cookie auth, parallel downloads, and Whisper+OCR extraction
+- **transcribe** is the result of evidence-backed research (Baranski et al., 2025) and benchmarking against 4 alternative approaches — zero hallucinations where competitors had 7-44x repeated phrases
 
 ---
 

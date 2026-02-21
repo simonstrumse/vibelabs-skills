@@ -1,0 +1,34 @@
+{
+  "name": "vibelabs-skills",
+  "description": "Production-tested agent skills for iOS development, Norwegian accounting, research orchestration, CDN management, browser automation, and more. Built by Vibelabs from real-world projects.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Vibelabs",
+    "email": "hello@vibelabs.no"
+  },
+  "homepage": "https://vibelabs.no",
+  "repository": "https://github.com/simonstrumse/vibelabs-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "agent-skills",
+    "ios-development",
+    "liquid-glass",
+    "swiftui",
+    "fiken",
+    "norwegian-accounting",
+    "bunny-net",
+    "cdn",
+    "instagram",
+    "research",
+    "multi-agent",
+    "browser-automation",
+    "transparency",
+    "image-generation",
+    "klarsprak",
+    "norwegian",
+    "changelog",
+    "deep-research",
+    "gemini"
+  ]
+}

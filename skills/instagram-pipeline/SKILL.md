@@ -19,13 +19,49 @@ allowed-tools:
 
 End-to-end pipeline: sync saved posts from Instagram's API, download media, and extract searchable text (Whisper transcription + OCR). Works with just Chrome cookies — no archive download or separate login needed.
 
+The pipeline code is **bundled with this skill** in the `scripts/` directory — no external package needed.
+
 ## Prerequisites
 
-- Python venv with `socmed` package installed (look for `.venv/` in the project)
+- Python 3.10+ with `venv` module
 - User logged into Instagram in Chrome (cookie-based API auth)
-- For extraction: `lightning-whisper-mlx`, `ocrmac`, `opencv-python`, `ffmpeg` installed
+- For extraction: macOS with Apple Silicon (for `lightning-whisper-mlx` and `ocrmac`)
 
 ## Setup
+
+### Step 0: Locate the bundled scripts
+
+```bash
+# Find the skill's scripts directory (works for both plugin and manual installs)
+SCRIPTS_DIR=$(find ~/.claude -path '*/instagram-pipeline/scripts' -type d 2>/dev/null | head -1)
+
+# Fallback: search in common locations
+if [ -z "$SCRIPTS_DIR" ]; then
+    SCRIPTS_DIR=$(find ~/Claude\ Code\ Projects -path '*/instagram-pipeline/scripts' -type d 2>/dev/null | head -1)
+fi
+
+echo "Scripts: $SCRIPTS_DIR"
+```
+
+If `SCRIPTS_DIR` is empty, the skill isn't installed. Install with:
+```bash
+claude plugin add simonstrumse/vibelabs-skills
+```
+
+### Step 1: Create venv and install (first time only)
+
+```bash
+# Option A: Use the setup script
+bash "$SCRIPTS_DIR/setup.sh"                # Core (sync + download)
+bash "$SCRIPTS_DIR/setup.sh" --extract      # Core + Whisper + OCR
+
+# Option B: Manual setup
+python3 -m venv .venv
+.venv/bin/pip install -e "$SCRIPTS_DIR"                               # Core
+.venv/bin/pip install -r "$SCRIPTS_DIR/requirements-extract.txt"      # Extraction (optional)
+```
+
+### Step 2: Set variables
 
 ```bash
 PROJECT_DIR=$(pwd)
@@ -58,7 +94,7 @@ Steps 1-2 happen together in a single `sync` command. Step 3 runs separately on 
 If a data file exists, show enrichment and extraction progress:
 
 ```bash
-$VENV -c "
+SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -c "
 from socmed.config import DATA_FILES
 from socmed.storage.json_store import JsonStore
 from collections import Counter
@@ -93,13 +129,13 @@ This fetches all saved posts directly from Instagram's API. Posts arrive fully e
 
 ```bash
 # Sync all saved posts (with media download)
-PYTHONUNBUFFERED=1 $VENV -m socmed.platforms.instagram.api_bootstrap sync
+PYTHONUNBUFFERED=1 SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -m socmed.platforms.instagram.api_bootstrap sync
 
 # Or sync a specific collection only
-PYTHONUNBUFFERED=1 $VENV -m socmed.platforms.instagram.api_bootstrap sync --collection "$ARGUMENTS"
+PYTHONUNBUFFERED=1 SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -m socmed.platforms.instagram.api_bootstrap sync --collection "$ARGUMENTS"
 
 # Metadata only (skip media download for speed)
-PYTHONUNBUFFERED=1 $VENV -m socmed.platforms.instagram.api_bootstrap sync --no-media
+PYTHONUNBUFFERED=1 SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -m socmed.platforms.instagram.api_bootstrap sync --no-media
 ```
 
 Run as a **background task**. Monitor output:
@@ -115,12 +151,12 @@ Wait for completion. Report the summary to the user.
 
 **To list collections without syncing:**
 ```bash
-$VENV -m socmed.platforms.instagram.api_bootstrap collections
+SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -m socmed.platforms.instagram.api_bootstrap collections
 ```
 
 **To compare API vs local store:**
 ```bash
-$VENV -m socmed.platforms.instagram.api_bootstrap stats
+SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -m socmed.platforms.instagram.api_bootstrap stats
 ```
 
 ### Step 3: Run extraction (if needed)
@@ -128,7 +164,7 @@ $VENV -m socmed.platforms.instagram.api_bootstrap stats
 Only run if posts have local media but no `extracted_text` field. **Sync with media download must complete first** since extraction needs local files.
 
 ```bash
-PYTHONUNBUFFERED=1 $VENV -m socmed.platforms.instagram.media_extractor run --collection "$ARGUMENTS" --save-every 10
+PYTHONUNBUFFERED=1 SOCMED_DATA_DIR="$PROJECT_DIR" $VENV -m socmed.platforms.instagram.media_extractor run --collection "$ARGUMENTS" --save-every 10
 ```
 
 Run as a **background task**. Monitor output:
@@ -167,8 +203,16 @@ Report the final state to the user.
 - **Resumable** — All steps skip already-processed items. Safe to interrupt (Ctrl+C) and restart.
 - **Sleep-safe** — macOS pauses background processes during sleep; they resume automatically.
 - **Always use PYTHONUNBUFFERED=1** for background tasks so output streams in real-time.
+- **Data directory** — Set `SOCMED_DATA_DIR` to control where data is stored. Defaults to current working directory.
 
 ## Troubleshooting
+
+### "No module named 'socmed'"
+The virtual environment doesn't have the bundled package installed. Run setup:
+```bash
+SCRIPTS_DIR=$(find ~/.claude -path '*/instagram-pipeline/scripts' -type d 2>/dev/null | head -1)
+.venv/bin/pip install -e "$SCRIPTS_DIR"
+```
 
 ### Sync returns no posts
 User needs to be logged into Instagram in Chrome. Have them open instagram.com, verify they're logged in, then retry.
@@ -181,3 +225,6 @@ A corrupted video file can hang ffmpeg. Kill the process — the pipeline resume
 
 ### Need to re-download media
 Media CDN URLs expire. Run sync again — it will re-fetch fresh URLs and download missing media files.
+
+### browser_cookie3 fails on macOS
+Grant Terminal (or your IDE) "Full Disk Access" in System Settings > Privacy & Security > Full Disk Access. Chrome's cookie database is in a protected directory.

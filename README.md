@@ -53,7 +53,7 @@ cp -r vibelabs-skills/skills/* ~/.claude/skills/
 |-------|-------------|
 | [**fiken-accounting**](skills/fiken-accounting/) | Norwegian Fiken accounting API. Invoices, credit notes, contacts, products, VAT handling. 11 critical gotchas documented with error messages. Multi-account support. |
 | [**bunny-net**](skills/bunny-net/) | Bunny.net CDN platform: edge storage, pull zones, image optimization, AI image generation, video streaming, edge scripting, DNS, security (WAF/DDoS). Complete API reference. |
-| [**instagram-pipeline**](skills/instagram-pipeline/) | Instagram saved posts pipeline: sync from API via Chrome cookies (~260 posts/min), parallel media download, Whisper audio transcription + OCR text extraction. |
+| [**instagram-pipeline**](skills/instagram-pipeline/) | Instagram saved posts pipeline: sync from API via Chrome cookies (~260 posts/min), parallel media download, Whisper audio transcription + OCR text extraction. **Self-contained** — bundled Python package in `scripts/`, one-command setup. |
 
 ### Content & Writing
 
@@ -109,6 +109,7 @@ Each skill follows the standard format:
 skills/
   skill-name/
     SKILL.md       # YAML frontmatter + markdown instructions
+    scripts/       # Optional: bundled executable code + dependencies
 ```
 
 The YAML frontmatter includes:
@@ -116,6 +117,8 @@ The YAML frontmatter includes:
 - `description` — What it does + when to trigger
 - `allowed-tools` — Pre-approved tools (where applicable)
 - `license` — MIT
+
+Skills with `scripts/` directories (like `instagram-pipeline`) are self-contained — they include all executable code and a setup script for one-command installation.
 
 ---
 

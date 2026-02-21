@@ -588,7 +588,7 @@ When Whisper gets stuck on a chunk (high compression ratio), it retries with pro
 initial_prompt="Claude Code, Anthropic, MCP, CoPilot, Vercel"
 
 # CORRECT — natural sentence (max 224 tokens)
-initial_prompt="Velkommen til møte i Vibelabs. Vi diskuterer Claude Code, Anthropic, vibecoding og MCP-servere."
+initial_prompt="Velkommen til møte om teknologi. Vi diskuterer Claude Code, Anthropic, CoPilot og MCP-servere."
 ```
 
 Whisper uses the initial prompt as if it were previous transcript text. A term list creates unnatural conditioning. A natural sentence biases vocabulary without distorting output.

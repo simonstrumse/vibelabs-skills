@@ -133,10 +133,11 @@ These topics are set on the repo for search discovery:
 
 ## Skills Inventory & Audit
 
-### What's in the repo (13 skills)
+### What's in the repo (14 skills)
 
 | Skill | Lines | Shareability | Quality | Usefulness | Unique? |
 |-------|-------|-------------|---------|------------|---------|
+| world-building | — | 5/5 | 5/5 | 5/5 | Yes — context-engineering harness from meetup talk |
 | parallel-research | 228 | 5/5 | 5/5 | 5/5 | Yes — 4-phase multi-agent methodology |
 | ios-development | 787 | 5/5 (scrubbed) | 5/5 | 5/5 | Self-updating iOS 26 toolkit |
 | fiken-accounting | 337 | 5/5 | 5/5 | 4/5 | Only Fiken skill in existence |

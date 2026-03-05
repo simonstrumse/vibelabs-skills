@@ -2,7 +2,7 @@
 
 Production-tested agent skills built from real-world projects. Each skill encodes hard-won knowledge from building iOS apps, sending invoices, orchestrating research, managing CDN infrastructure, and automating browsers.
 
-**13 skills** covering iOS development, Norwegian accounting, research orchestration, CDN/media management, audio transcription, browser automation, content pipelines, and more.
+**14 skills** covering world-building, iOS development, Norwegian accounting, research orchestration, CDN/media management, audio transcription, browser automation, content pipelines, and more.
 
 ---
 
@@ -43,6 +43,7 @@ cp -r vibelabs-skills/skills/* ~/.claude/skills/
 
 | Skill | Description |
 |-------|-------------|
+| [**world-building**](skills/world-building/) | Build the world before you write the story. Advanced context engineering harness: pillar map, folder scaffolding, parallel research, layered synthesis, critical review, and evidence-linked PRD/build plan. |
 | [**parallel-research**](skills/parallel-research/) | Hierarchical multi-agent research: lead agents decompose questions, sub-agents execute threads, devil's advocate challenges findings, synthesis agent resolves conflicts. 4-phase methodology. |
 | [**google-deep-research**](skills/google-deep-research/) | Google Gemini Deep Research API integration. Submits queries that run 5-20 minutes server-side, searching multiple web sources and producing 5,000-40,000 character reports. |
 | [**company-research**](skills/company-research/) | Company intelligence using Exa search. Discovery, competitive analysis, LinkedIn profiles, news tracking. Token-isolated sub-agent architecture keeps context clean. |
@@ -83,6 +84,7 @@ These aren't toy examples. Each skill was built to solve real problems in produc
 - **ios-development** encodes months of iOS 26 Liquid Glass patterns, deprecated API tracking, and App Store rejection prevention
 - **fiken-accounting** documents 11 API gotchas discovered through actual invoice failures (wrong VAT codes, missing bank accounts, silent field ignoring)
 - **parallel-research** is the methodology behind 100+ research projects spanning competitive analysis, market research, and technical deep-dives
+- **world-building** is the context engineering methodology from the January 21, 2026 Claude Code Meetup Oslo lightning talk: hands-off but non-generic through pillar mapping, synthesis, and evidence-linked builds
 - **bunny-net** covers the full Bunny.net platform from a single skill (CDN, storage, video, AI, edge compute, security)
 - **instagram-pipeline** processes 12,000+ saved posts with Chrome cookie auth, parallel downloads, and Whisper+OCR extraction
 - **transcribe** is the result of evidence-backed research (Baranski et al., 2025) and benchmarking against 4 alternative approaches — zero hallucinations where competitors had 7-44x repeated phrases
@@ -109,6 +111,7 @@ Each skill follows the standard format:
 skills/
   skill-name/
     SKILL.md       # YAML frontmatter + markdown instructions
+    references/    # Optional: supporting docs loaded only when needed
     scripts/       # Optional: bundled executable code + dependencies
 ```
 
@@ -117,6 +120,8 @@ The YAML frontmatter includes:
 - `description` — What it does + when to trigger
 - `allowed-tools` — Pre-approved tools (where applicable)
 - `license` — MIT
+
+Skills with `references/` directories (like `world-building`) keep the main skill concise while bundling deeper methodology docs.
 
 Skills with `scripts/` directories (like `instagram-pipeline`) are self-contained — they include all executable code and a setup script for one-command installation.
 

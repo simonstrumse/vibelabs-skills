@@ -1,7 +1,7 @@
 {
   "name": "vibelabs-skills",
-  "description": "Production-tested agent skills for iOS development, Norwegian accounting, research orchestration, CDN management, audio transcription, browser automation, and more. Built by Vibelabs from real-world projects.",
-  "version": "1.1.0",
+  "description": "Production-tested agent skills for world-building, iOS development, Norwegian accounting, research orchestration, CDN management, audio transcription, browser automation, and more. Built by Vibelabs from real-world projects.",
+  "version": "1.2.0",
   "author": {
     "name": "Vibelabs",
     "email": "hello@vibelabs.no"
@@ -9,9 +9,12 @@
   "homepage": "https://vibelabs.no",
   "repository": "https://github.com/simonstrumse/vibelabs-skills",
   "license": "MIT",
+  "skills": "./skills/",
   "keywords": [
     "claude-code",
     "agent-skills",
+    "world-building",
+    "context-engineering",
     "ios-development",
     "liquid-glass",
     "swiftui",

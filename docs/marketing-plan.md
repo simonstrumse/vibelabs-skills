@@ -15,7 +15,7 @@ The agent skills ecosystem (as of February 2026) has three layers:
 | **Plugins** | Bundles with `.claude-plugin/plugin.json` manifest | `claude plugin add owner/repo` |
 | **Marketplaces** | Registries with `marketplace.json` listing multiple plugins | `/plugin marketplace add owner/repo` |
 
-Our repo is structured as a **Plugin** (layer 2) — installable with a single command.
+Our repo is structured as a **Marketplace** (layer 3) containing multiple installable plugins.
 
 ### Compatible agents
 
@@ -80,7 +80,7 @@ These topics are set on the repo for search discovery:
 ### Phase 1: Foundations (this week)
 
 - [x] Create public repo with 12 skills
-- [x] Structure as Claude Code plugin with `plugin.json`
+- [x] Structure as Claude Code marketplace with grouped plugins
 - [x] Add GitHub topics for discovery
 - [x] Send internal notification (emma@vibelabs.no)
 - [ ] Submit to Anthropic official directory (clau.de/plugin-directory-submission)
@@ -202,13 +202,11 @@ These topics are set on the repo for search discovery:
 
 Users install our repo via:
 ```bash
-# Claude Code native
-claude plugin add simonstrumse/vibelabs-skills
+# Claude Code marketplace
+/plugin marketplace add simonstrumse/vibelabs-skills
+/plugin install vibelabs-research@vibelabs
 
-# npx skills (cross-agent)
-npx skills add simonstrumse/vibelabs-skills
-
-# Manual
+# Manual raw skills
 git clone https://github.com/simonstrumse/vibelabs-skills.git
 cp -r vibelabs-skills/skills/* ~/.claude/skills/
 ```

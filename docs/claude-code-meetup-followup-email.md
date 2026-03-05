@@ -19,7 +19,8 @@ I finally packaged it properly. It now lives in the Vibelabs skills repo as the 
 https://github.com/simonstrumse/vibelabs-skills
 
 Install:
-claude plugin add simonstrumse/vibelabs-skills
+/plugin marketplace add simonstrumse/vibelabs-skills
+/plugin install vibelabs-research@vibelabs
 
 Then use:
 Use $world-building to run deep research before building [THING].
@@ -48,7 +49,8 @@ It’s now the `world-building` skill inside:
 https://github.com/simonstrumse/vibelabs-skills
 
 Install:
-claude plugin add simonstrumse/vibelabs-skills
+/plugin marketplace add simonstrumse/vibelabs-skills
+/plugin install vibelabs-research@vibelabs
 
 Use:
 Use $world-building to run deep research before building [THING].

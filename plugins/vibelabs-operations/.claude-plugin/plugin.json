@@ -1,0 +1,20 @@
+{
+  "name": "vibelabs-operations",
+  "description": "Infrastructure, accounting, browser automation, and operational workflows.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Vibelabs",
+    "email": "hello@vibelabs.no"
+  },
+  "homepage": "https://vibelabs.no",
+  "repository": "https://github.com/simonstrumse/vibelabs-skills",
+  "license": "MIT",
+  "skills": "./skills/",
+  "keywords": [
+    "operations",
+    "accounting",
+    "browser-automation",
+    "bunny-net",
+    "fiken"
+  ]
+}

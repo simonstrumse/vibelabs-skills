@@ -1,0 +1,20 @@
+{
+  "name": "vibelabs-development",
+  "description": "iOS development, Liquid Glass UI, and strategic changelog discipline.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Vibelabs",
+    "email": "hello@vibelabs.no"
+  },
+  "homepage": "https://vibelabs.no",
+  "repository": "https://github.com/simonstrumse/vibelabs-skills",
+  "license": "MIT",
+  "skills": "./skills/",
+  "keywords": [
+    "ios",
+    "swiftui",
+    "liquid-glass",
+    "changelog",
+    "development"
+  ]
+}

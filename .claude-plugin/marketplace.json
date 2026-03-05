@@ -1,0 +1,101 @@
+{
+  "version": "1.0.0",
+  "name": "vibelabs",
+  "displayName": "Vibelabs Skills",
+  "owner": {
+    "name": "Vibelabs",
+    "email": "hello@vibelabs.no",
+    "url": "https://vibelabs.no"
+  },
+  "plugins": [
+    {
+      "name": "vibelabs-research",
+      "source": "./plugins/vibelabs-research",
+      "description": "World-building, parallel research, deep research, and company intelligence.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vibelabs",
+        "email": "hello@vibelabs.no"
+      },
+      "keywords": [
+        "research",
+        "world-building",
+        "deep-research",
+        "context-engineering"
+      ]
+    },
+    {
+      "name": "vibelabs-development",
+      "source": "./plugins/vibelabs-development",
+      "description": "iOS development, Liquid Glass UI, and project changelog discipline.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vibelabs",
+        "email": "hello@vibelabs.no"
+      },
+      "keywords": [
+        "ios",
+        "swiftui",
+        "liquid-glass",
+        "development"
+      ]
+    },
+    {
+      "name": "vibelabs-operations",
+      "source": "./plugins/vibelabs-operations",
+      "description": "Infrastructure, accounting, browser automation, and operational tooling.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vibelabs",
+        "email": "hello@vibelabs.no"
+      },
+      "keywords": [
+        "operations",
+        "accounting",
+        "browser-automation",
+        "infrastructure"
+      ]
+    },
+    {
+      "name": "vibelabs-content",
+      "source": "./plugins/vibelabs-content",
+      "description": "Transcription, Instagram pipeline, image transparency, and Norwegian language tooling.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Vibelabs",
+        "email": "hello@vibelabs.no"
+      },
+      "keywords": [
+        "content",
+        "media",
+        "transcription",
+        "instagram"
+      ]
+    }
+  ],
+  "metadata": {
+    "description": "Production-tested Claude Code plugins built from real-world Vibelabs projects.",
+    "owners": [
+      {
+        "name": "Vibelabs",
+        "email": "hello@vibelabs.no",
+        "url": "https://vibelabs.no"
+      }
+    ],
+    "categories": [
+      "research",
+      "development",
+      "operations",
+      "content"
+    ],
+    "tags": [
+      "claude-code",
+      "agent-skills",
+      "plugin-marketplace",
+      "world-building",
+      "ios-development",
+      "operations",
+      "content"
+    ]
+  }
+}

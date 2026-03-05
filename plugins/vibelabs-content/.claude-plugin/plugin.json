@@ -1,0 +1,20 @@
+{
+  "name": "vibelabs-content",
+  "description": "Transcription, media pipelines, image transparency, and Norwegian writing tools.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Vibelabs",
+    "email": "hello@vibelabs.no"
+  },
+  "homepage": "https://vibelabs.no",
+  "repository": "https://github.com/simonstrumse/vibelabs-skills",
+  "license": "MIT",
+  "skills": "./skills/",
+  "keywords": [
+    "content",
+    "media",
+    "transcription",
+    "instagram",
+    "klarsprak"
+  ]
+}
